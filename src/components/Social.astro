@@ -1,0 +1,14 @@
+---
+import ButtonLink from "./ButtonLink.astro";
+const { icon, invertHover, platform, username, size } = Astro.props;
+---
+
+
+  <ButtonLink
+    icon={icon.src}
+    btnText={platform}
+    btnLink={`https://www.${platform}.com/${username}`}
+    btnTarget="_blank"
+    invertHover={invertHover}
+    size={size}
+  />
