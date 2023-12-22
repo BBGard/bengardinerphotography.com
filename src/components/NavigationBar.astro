@@ -1,42 +1,51 @@
 ---
 import Hamburger from "./Hamburger.astro";
+import logo from "../assets/Nameplate 2023_180.png";
+import logoRetina from "../assets/Nameplate 2023_retina.png";
 
 const Navbar = {
-  logo: "/path/to/logo.png",
+  logo: logo,
+  logoRetina: logoRetina,
   links: [
-    { text: "About", url: "/#about" },
-    { text: "Projects", url: "/#projects" },
-    { text: "Contact", url: "/#contact" },
-    { text: "Dev.Log", url: "/blog" },
+    { text: "Home", url: "/" },
+    { text: "Latest", url: "/latest" },
+    { text: "Gallery", url: "/gallery" },
+    { text: "Prints", url: "/prints" },
+    { text: "About", url: "/about" },
+    { text: "Contact", url: "/contact" },
   ],
 };
 ---
 
 <nav class="navbar">
   <div class="nav-container">
-  <div class="logo">
-    <!-- <img src={Navbar.logo} alt="Logo" /> -->
-    <a class="logo-text" href="/">Benjamin Gardiner</a>
+    <a class="logo" href="/">
+      <img src={Navbar.logo.src} alt="Logo" />
+    </a>
+
+    <ul class="nav-links">
+      <li>
+        <a href={Navbar.links[0].url}>{Navbar.links[0].text}</a>
+      </li>
+      <li>
+        <a href={Navbar.links[1].url}>{Navbar.links[1].text}</a>
+      </li>
+      <li>
+        <a href={Navbar.links[2].url}>{Navbar.links[2].text}</a>
+      </li>
+      <li>
+        <a href={Navbar.links[3].url}>{Navbar.links[3].text}</a>
+      </li>
+      <li>
+        <a href={Navbar.links[4].url}>{Navbar.links[4].text}</a>
+      </li>
+      <li>
+        <a href={Navbar.links[5].url}>{Navbar.links[5].text}</a>
+      </li>
+    </ul>
+    <Hamburger />
   </div>
-
-  <ul class="nav-links">
-    <li>
-      <a href={Navbar.links[0].url}>{Navbar.links[0].text}</a>
-    </li>
-    <li>
-      <a href={Navbar.links[1].url}>{Navbar.links[1].text}</a>
-    </li>
-    <li>
-      <a href={Navbar.links[2].url}>{Navbar.links[2].text}</a>
-    </li>
-    <li>
-      <a href={Navbar.links[3].url}>{Navbar.links[3].text}</a>
-    </li>
-  </ul>
-  <Hamburger />
-</div>
 </nav>
-
 
 <style>
   /* Navbar Styles */
@@ -44,13 +53,12 @@ const Navbar = {
   .navbar {
     position: fixed;
     top: 0;
-    padding-top: 1rem;
     width: 100%;
     height: 70px;
-    background-color: var(--background-light);
-    color: var(--primary);
-    border-bottom: 2px solid var(--accent);
-    box-shadow: 0 1px 2px var(--accent-transparent);
+    background: none;
+    padding: 0 1rem;
+    min-height: 5rem;
+    background-color: black;
     transition: all 0.5s;
     z-index: 2;
   }
@@ -61,73 +69,47 @@ const Navbar = {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
-    padding-bottom: 1rem;
-  }
-
-  .navbar .logo {
-    display: flex;
-    align-items: center;
-  }
-
-  .navbar .logo .logo-text {
-    margin-left: 1rem;
-    font-size: var(--font-size-1);
-    font-family: var(--font-logo);
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--accent);
-    transition: all 0.2s ease-in-out;
-  }
-
-  .navbar .logo .logo-text:hover {
-    color: var(--primary);
-    transform: translate(1px, 1px);
+    margin: 1rem auto;
+    padding: 0 1rem;
   }
 
   .logo img {
-    width: 100px;
+    max-width: 180px;
+    height: auto;
+    transition: all 0.2s linear;
+    vertical-align: middle;
   }
 
   .nav-links {
     display: flex;
-    justify-content: space-evenly;
-    width: 50%;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
     margin: 0;
-    padding: 0;
-    font-weight: 600;
   }
 
   .nav-links li {
     list-style: none;
-    margin: 0;
     padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
     cursor: pointer;
-    box-shadow: 2px 2px 0px var(--accent-transparent);
     transition: all 0.2s ease-in-out;
+  }
+
+  .nav-links li a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: var(--font-size-4);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+  }
+
+  .nav-links li a:hover {
+    color: var(--color-gold);
   }
 
   .nav-links li:hover {
-    list-style: none;
-    margin: 0;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    box-shadow:
-      1px 1px 0px var(--accent-color-transparent),
-      -1px -1px 0px var(--accent-transparent);
-    transition: all 0.2s ease-in-out;
-
-    transform: translate(2px, 2px);
-  }
-
-  .nav-links a {
-    color: var(--primary);
-    text-decoration: none;
-    font-size: var(--font-size-4);
-    font-family: var(--font-logo);
-    font-weight: 600;
+    transform: scale(1.2);
   }
 
   .expanded {
@@ -161,7 +143,6 @@ const Navbar = {
     top: -5rem;
   }
 
-
   @media (max-width: 768px) {
     .nav-links {
       display: none;
@@ -174,6 +155,4 @@ const Navbar = {
       font-size: var(--font-size-2);
     }
   }
-
-
 </style>
