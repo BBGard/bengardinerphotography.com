@@ -1,7 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import FullSection from "../components/FullSection.astro";
 import Card from "../components/Card.astro";
 import "../styles/global.css";
+
+import homeBackground from "../assets/images/header-home.webp";
 
 const pageTitle = "Home";
 const description =
@@ -9,5 +12,7 @@ const description =
 ---
 
 <Layout title={pageTitle} description={description}>
-  <main></main>
+  <main class="clear full-page">
+		<FullSection id={pageTitle.toLowerCase()}/>
+	</main>
 </Layout>

@@ -24,3 +24,15 @@ document.querySelectorAll('.nav-links a').forEach((link) => {
     document.querySelector('body').classList.remove('no-scroll');
   });
 });
+
+// Get the current page url and set the active class on the corresponding nav-link
+const url = window.location.href;
+const navLinks = document.querySelectorAll('.nav-links a');
+navLinks.forEach((link) => {
+  if (link.href === url) {
+    link.classList.add('active');
+
+    // also add active to the parent li
+    link.parentNode.classList.add('active');
+  }
+});

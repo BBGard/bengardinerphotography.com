@@ -15,6 +15,12 @@ const Navbar = {
     { text: "Contact", url: "/contact" },
   ],
 };
+
+const currentPage = "/"; // Replace with the current page URL
+
+function isCurrentPage(url) {
+  return currentPage === url;
+}
 ---
 
 <nav class="navbar">
@@ -24,24 +30,15 @@ const Navbar = {
     </a>
 
     <ul class="nav-links">
-      <li>
-        <a href={Navbar.links[0].url}>{Navbar.links[0].text}</a>
-      </li>
-      <li>
-        <a href={Navbar.links[1].url}>{Navbar.links[1].text}</a>
-      </li>
-      <li>
-        <a href={Navbar.links[2].url}>{Navbar.links[2].text}</a>
-      </li>
-      <li>
-        <a href={Navbar.links[3].url}>{Navbar.links[3].text}</a>
-      </li>
-      <li>
-        <a href={Navbar.links[4].url}>{Navbar.links[4].text}</a>
-      </li>
-      <li>
-        <a href={Navbar.links[5].url}>{Navbar.links[5].text}</a>
-      </li>
+      {Navbar.links.map((link) => (
+        <li>
+          <a
+            href={link.url}
+          >
+            {link.text}
+          </a>
+        </li>
+      ))}
     </ul>
     <Hamburger />
   </div>
@@ -58,7 +55,7 @@ const Navbar = {
     background: none;
     padding: 0 1rem;
     min-height: 5rem;
-    background-color: black;
+    background-color: none;
     transition: all 0.5s;
     z-index: 2;
   }
@@ -69,7 +66,7 @@ const Navbar = {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin: 1rem auto;
+    margin: 2rem auto;
     padding: 0 1rem;
   }
 
@@ -84,7 +81,9 @@ const Navbar = {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-end;
+    align-items: center;
     margin: 0;
+
   }
 
   .nav-links li {
@@ -99,7 +98,7 @@ const Navbar = {
     text-decoration: none;
     font-size: var(--font-size-4);
     font-family: var(--font-primary);
-    font-weight: 600;
+    font-weight: 500;
     transition: all 0.3s ease-in-out;
     transform: scale(1);
   }
@@ -141,6 +140,14 @@ const Navbar = {
 
   .hide-nav {
     top: -5rem;
+  }
+
+   .nav-links li a.active {
+    color: var(--color-active-link);
+  }
+
+  .nav-links li.active {
+    transform: scale(1.2);
   }
 
   @media (max-width: 768px) {
