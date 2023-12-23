@@ -1,0 +1,53 @@
+---
+/**
+ * @component GalleryGrid.astro
+ * @description A gallery grid component for the homepage.
+ */
+import ImageCard from "../components/ImageCard.astro"
+
+
+---
+<div class="gallery-grid">
+  <ImageCard
+    imgSrc="https://res.cloudinary.com/bengardiner/image/upload/v1628669856/astro/astro-1.webp"
+    imgAlt="Astro Photography"
+    title="Astro"
+    description="Photography of the stars, the moon, the cosmos, and beyond."
+    link="/astro-photography"
+  />
+  <ImageCard
+    imgSrc="https://res.cloudinary.com/bengardiner/image/upload/v1628669856/seasons/seasons-1.webp"
+    imgAlt="Seasons"
+    title="Seasons"
+    description="Summer, Autumn, Winter, Spring. Seasonal photography throughout the year."
+    link="/seasons"
+  />
+  <ImageCard
+    imgSrc="https://res.cloudinary.com/bengardiner/image/upload/v1628669856/landscapes/landscapes-1.webp"
+    imgAlt="Landscapes"
+    title="Landscapes"
+    description="The bush, the fog, the light, the landscape. Photography of Australia's unique landscapes."
+    link="/landscapes"
+  />
+  <ImageCard
+    imgSrc="https://res.cloudinary.com/bengardiner/image/upload/v1628669856/nature/nature-1.webp"
+    imgAlt="Nature"
+    title="Nature"
+    description="The natural world. Plants and bugs. Photography of the often overlooked aspects of nature."
+    link="/nature"
+  />
+  <ImageCard
+    imgSrc="https://res.cloudinary.com/bengardiner/image/upload/v1628669856/abstract/abstract-1.webp"
+    imgAlt="Rural"
+    title="Rural"
+    description="Farms, fields and small towns. The classic Australian rural landscapes and their features."
+    link="/rural"
+  />
+  <ImageCard
+    imgSrc="https://res.cloudinary.com/bengardiner/image/upload/v1628669856/wildlife/wildlife-1.webp"
+    imgAlt="Wildlife"
+    title="Wildlife"
+    description="From wallabies, kangaroos, and birds to echidnas and koalas. Photography of some of Australias incredible wildlife."
+    link="/wildlife"
+  />
+</div>

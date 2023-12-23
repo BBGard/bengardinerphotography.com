@@ -1,0 +1,28 @@
+---
+import ButtonLink from './ButtonLink.astro';
+interface Props {
+  imgSrc: string;
+  imgAlt: string;
+  title?: string;
+  description?: string;
+  link?: string;
+}
+
+
+const {
+  imgSrc = "",
+  imgAlt = "",
+  title = "",
+  description = "",
+  link = "",
+} = Astro.props;
+
+---
+
+<div class="cards">
+  <article class="image-card">
+    <a href={link} class="image-card-link"><img src={imgSrc} alt={imgAlt} /></a>
+    <a href={link} class="image-card-link"><h3 class="title">{title}</h3></a>
+    <p class="description">{description}</p>
+  </article>
+</div>

@@ -1,0 +1,22 @@
+---
+/**
+ * @component FullImageHeroSection
+ * @description A full-width image with a title overlay.
+ * @prop {string} id - A unique identifier for this component - used to set the background image in css.
+ */
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<section class="full-section">
+  <div class="header-image" id=`header-${id}`></div>
+  <div class="header-title" id=`header-title-${id}`>
+    <!-- Insert custom content here -->
+    <slot />
+    <!-- End custom slot -->
+  </div>
+</section>

@@ -1,10 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import FullSection from "../components/FullSection.astro";
-import Card from "../components/Card.astro";
+import FullImageHeroSection from "../components/FullImageHeroSection.astro";
+import ButtonLink from "../components/ButtonLink.astro";
+import HomeGalleryGrid from "../components/HomeGalleryGrid.astro";
 import "../styles/global.css";
-
-import homeBackground from "../assets/images/header-home.webp";
 
 const pageTitle = "Home";
 const description =
@@ -12,7 +11,27 @@ const description =
 ---
 
 <Layout title={pageTitle} description={description}>
-  <main class="clear full-page">
-		<FullSection id={pageTitle.toLowerCase()}/>
-	</main>
+  <FullImageHeroSection id={pageTitle.toLowerCase()}>
+    <h1>
+      <span class="letter-highlight">B</span>en
+      <span class="letter-highlight">G</span>ardiner
+      <span class="letter-highlight">P</span>hotography
+    </h1>
+    <h4>
+      <span class="highlight-1">Nature.</span>
+      <span class="highlight-2">Landscape.</span>
+      <span class="highlight-3">Wildlife.</span>
+    </h4>
+    <ButtonLink
+      size="large"
+      btnText="Gallery"
+      btnLink="#gallery"
+      customClass="mt-2"
+    />
+  </FullImageHeroSection>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <HomeGalleryGrid />
+  </section>
 </Layout>
