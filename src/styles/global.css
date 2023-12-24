@@ -133,6 +133,7 @@ meter {
   /* Fonts */
   --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
   --font-secondary: 'Playfair Display', 'Nimbus Mono PS', 'Courier New', monospace;
+  --font-system: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
   /* --font-logo: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive; */
   --font-code: 'Fira Code', monospace;
 
@@ -153,11 +154,16 @@ meter {
   box-sizing: border-box;
 }
 
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 
 
 html, body {
   font-family: var(--font-primary);
-  background-color: var(--background-light);
+  background-color: var(--secondary);
   background-size: 224px;
   scroll-behavior: smooth;
   margin: 0;
