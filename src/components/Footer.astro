@@ -74,6 +74,7 @@ const FooterNav = {
     padding: 0;
   }
 
+
   footer .footer-menu ul li {
     margin: 0;
     padding: 0;
@@ -176,4 +177,16 @@ const FooterNav = {
     color: var(--color-active-link);
     text-decoration: none;
   }
+
+  @media screen and (max-width: 768px) {
+    footer .footer-menu ul {
+      flex-direction: column;
+    }
+
+    footer .footer-copyright {
+      flex-direction: column;
+    }
+
+  }
+
 </style>
