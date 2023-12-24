@@ -19,8 +19,10 @@ const {
 
 <article class="image-card">
   <a href={link} class="image-card-link"><img src={imgSrc} alt={imgAlt} /></a>
-  <a href={link} class="image-card-link"><h3 class="title">{title}</h3></a>
-  <p class="description">{description}</p>
+  <div class="card-content">
+    <a href={link} class="image-card-link"><h3 class="title">{title}</h3></a>
+    <p class="description">{description}</p>
+  </div>
 </article>
 
 <style>
@@ -44,7 +46,6 @@ const {
     width: 100%;
     height: auto;
     border-radius: 1rem;
-    margin-bottom: 1rem;
     transition: all 0.2s ease-in-out;
   }
 
@@ -52,8 +53,12 @@ const {
     transform: scale(1.1);
   }
 
+
+  .card-content {
+    padding: 1rem;
+  }
+
   .title {
-    margin: 0;
     font-size: var(--font-size-1);
     font-family: var(--font-secondary);
     color: var(--color-green);
@@ -70,6 +75,7 @@ const {
     font-size: var(--font-size-4);
     font-family: var(--font-primary);
     font-weight: 500;
+    color: var(--color-dark-grey);
   }
 
   @media (min-width: 768px) {

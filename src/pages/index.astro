@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import FullImageHeroSection from "../components/FullImageHeroSection.astro";
 import ButtonLink from "../components/ButtonLink.astro";
 import HomeGalleryGrid from "../components/HomeGalleryGrid.astro";
+import ImageQuote from "../components/ImageQuote.astro";
 import "../styles/global.css";
 
 const pageTitle = "Home";
@@ -17,11 +18,11 @@ const description =
       <span class="letter-highlight">G</span>ardiner
       <span class="letter-highlight">P</span>hotography
     </h1>
-    <h4>
+    <h3>
       <span class="highlight-1">Nature.</span>
       <span class="highlight-2">Landscape.</span>
       <span class="highlight-3">Wildlife.</span>
-    </h4>
+    </h3>
     <ButtonLink
       size="large"
       btnText="Gallery"
@@ -34,4 +35,31 @@ const description =
     <h2>Gallery</h2>
     <HomeGalleryGrid />
   </section>
+
+	<ImageQuote id="home-quote" author="Carl Sagan">
+		<p>
+      “Our planet is a lonely speck in the great enveloping cosmic dark.
+      <br /><br />In our obscurity, in all this vastness, there is no hint
+      that help will come from elsewhere to save us from ourselves...<br /><br
+      />...Like it or not, for the moment the Earth is where we make our
+      stand...<br /><br />…To me, it underscores our responsibility to deal
+      more kindly with one another, and to preserve and cherish the pale blue
+      dot, the only home we've ever known.”
+    </p>
+	</ImageQuote>
+
+  <!-- <section id="home-quote">
+    <blockquote>
+      <p>
+        “Our planet is a lonely speck in the great enveloping cosmic dark.
+        <br /><br />In our obscurity, in all this vastness, there is no hint
+        that help will come from elsewhere to save us from ourselves...<br /><br
+        />...Like it or not, for the moment the Earth is where we make our
+        stand...<br /><br />…To me, it underscores our responsibility to deal
+        more kindly with one another, and to preserve and cherish the pale blue
+        dot, the only home we've ever known.”
+      </p>
+      <footer>- Carl Sagan -</footer>
+    </blockquote>
+  </section> -->
 </Layout>
