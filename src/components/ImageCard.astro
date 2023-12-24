@@ -1,5 +1,5 @@
 ---
-import ButtonLink from './ButtonLink.astro';
+import ButtonLink from "./ButtonLink.astro";
 interface Props {
   imgSrc: string;
   imgAlt: string;
@@ -8,7 +8,6 @@ interface Props {
   link?: string;
 }
 
-
 const {
   imgSrc = "",
   imgAlt = "",
@@ -16,13 +15,66 @@ const {
   description = "",
   link = "",
 } = Astro.props;
-
 ---
 
-<div class="cards">
-  <article class="image-card">
-    <a href={link} class="image-card-link"><img src={imgSrc} alt={imgAlt} /></a>
-    <a href={link} class="image-card-link"><h3 class="title">{title}</h3></a>
-    <p class="description">{description}</p>
-  </article>
-</div>
+<article class="image-card">
+  <a href={link} class="image-card-link"><img src={imgSrc} alt={imgAlt} /></a>
+  <a href={link} class="image-card-link"><h3 class="title">{title}</h3></a>
+  <p class="description">{description}</p>
+</article>
+
+<style>
+  .image-card {
+    flex: 1 1 100%;
+    margin: 0.5rem;
+    border-radius: 4px;
+    text-align: left;
+  }
+
+  .image-card-link {
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .image-card-link:hover {
+    color: var(--color-gold);
+  }
+
+  .image-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .image-card img:hover {
+    transform: scale(1.1);
+  }
+
+  .title {
+    margin: 0;
+    font-size: var(--font-size-1);
+    font-family: var(--font-secondary);
+    color: var(--color-green);
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .title:hover {
+    color: var(--color-gold);
+  }
+
+  .description {
+    margin: 0;
+    font-size: var(--font-size-4);
+    font-family: var(--font-primary);
+    font-weight: 500;
+  }
+
+  @media (min-width: 768px) {
+    .image-card {
+      flex: 1 1 48%;
+    }
+  }
+</style>
