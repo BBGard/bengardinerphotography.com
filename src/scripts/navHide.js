@@ -16,6 +16,13 @@ window.addEventListener("scroll", () => {
   } else {
     // Scrolling up
     nav.classList.remove("hide-nav");
+
+    // If scroll position is not at the top, make the navbar background opaque
+    if (window.scrollY > 10) {
+      nav.classList.add("opaque");
+    } else {
+      nav.classList.remove("opaque");
+    }
   }
   prevScrollTop = currentScrollTop;
 });
