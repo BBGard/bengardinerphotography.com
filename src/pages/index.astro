@@ -68,4 +68,38 @@ const description =
 		</p>
 		<p>I hope you enjoy!</p>
 	</TextImageSection>
+
+	<section id="home-contact">
+		<h2>Questions?</h2>
+		<p>Prints, downloads, tips, etc.
+			<br/>
+			If you have any question at all, feel free to ask.
+		</p>
+		<ButtonLink
+			size="large"
+			btnText="Contact"
+			btnLink="/contact"
+			customClass="mt-2"
+		/>
+
 </Layout>
+
+<style>
+	#home-contact {
+		text-align: center;
+		min-height: 100svh;
+		position: static;
+    width: 100%;
+
+		background: linear-gradient(
+			rgba(36, 76, 95, 0.5),
+			rgba(0, 0, 0, 0.5)
+		);
+		margin-bottom: 0;
+	}
+
+	#home-contact p {
+		color: var(--secondary);
+		font-weight: 500;
+	}
+</style>
