@@ -18,7 +18,7 @@ const {
 ---
 
 <article class="image-card">
-  <a href={link} class="image-card-link"><img src={imgSrc} alt={imgAlt} /></a>
+  <a href={link} class="image-card-link"><img decoding="async" loading="lazy" src={imgSrc} alt={imgAlt} /></a>
   <div class="card-content">
     <a href={link} class="image-card-link"><h3 class="title">{title}</h3></a>
     <p class="description">{description}</p>
