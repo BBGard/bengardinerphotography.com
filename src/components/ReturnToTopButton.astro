@@ -20,29 +20,28 @@ import arrow from "../assets/double-arrow-up.svg";
   display: block;
   width: 2.5rem;
   height: 2.5rem;
-  box-shadow: 2px 2px 0px var(--accent-transparent);
-      transition: all 0.2s ease-in-out;
-      border-radius: 0.25rem;
-      border: 0.125rem solid var(--accent);
-      background-color: var(--accent);
   padding: 0.25rem;
+  border-radius: 1rem;
+  background-color: var(--color-gold);
+  color: var(--secondary);
+  text-decoration: none;
+  text-align: center;
+  font-size: var(--font-size-3);
+  color: var(--secondary);
+  font-family: var(--font-primary);
+  font-weight: 500;
+  cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
 .return-to-top a:hover {
-  background-color: var(--secondary);
-      color: var(--accent);
-      box-shadow: 1px 1px 0px var(--accent-color-transparent);
-      transform: translate(2px, 2px);
+  text-decoration: none;
+  background-color: var(--color-green);
+  transform: scale(1.1);
 }
 
 .return-to-top a img {
   width: 2rem;
   filter: invert(1);
-  transition: none;
-}
-
-.return-to-top a:hover img {
-  filter: invert(0);
 }
 </style>

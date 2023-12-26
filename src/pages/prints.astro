@@ -1,6 +1,17 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import FullImageHeroSection from "../components/FullImageHeroSection.astro";
 import "../styles/global.css";
 
 const pageTitle = "Prints";
 const description = "Download or purchase prints from Ben Gardiner Photography";
 ---
+
+<Layout title={pageTitle} description={description}>
+  <FullImageHeroSection id={pageTitle.toLowerCase()}>
+    <h1>
+      <span class="letter-highlight">P</span>rints
+    </h1>
+  </FullImageHeroSection>
+
+</Layout>

@@ -329,7 +329,23 @@ section {
 }
 
 #header-home {
-  background-image: url("../assets/images/header-home.webp");
+  background-image: url("../assets/images/headers/header-home.webp");
+}
+
+#header-latest {
+  background-image: url("../assets/images/headers/header-latest.webp");
+}
+
+#header-gallery {
+  background-image: url("../assets/images/headers/header-gallery.webp");
+}
+
+#header-about {
+  background-image: url("../assets/images/headers/header-about.webp");
+}
+
+#header-contact {
+  background-image: url("../assets/images/headers/header-contact.webp");
 }
 
 .header-title {
@@ -656,7 +672,7 @@ h2.colorized {
 }
 
 .fade-in-animation {
-  animation: fade-in-animation 2s;
+  animation: fade-in-animation 3s;
 }
 
 @keyframes fade-in-animation {
