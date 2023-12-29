@@ -6,6 +6,7 @@ interface Props {
   title?: string;
   description?: string;
   link?: string;
+  size?: "small" | "large";
 }
 
 const {
@@ -14,10 +15,11 @@ const {
   title = "",
   description = "",
   link = "",
+  size = "small",
 } = Astro.props;
 ---
 
-<article class="image-card">
+<article class={size === "large" ? "image-card-large" : "image-card-small"}>
   <a href={link} class="image-card-link"><img decoding="async" loading="lazy" src={imgSrc} alt={imgAlt} /></a>
   <div class="card-content">
     <a href={link} class="image-card-link"><h3 class="title">{title}</h3></a>
@@ -26,11 +28,17 @@ const {
 </article>
 
 <style>
-  .image-card {
+  .image-card-small, .image-card-large {
     flex: 1 1 100%;
     margin: 0.5rem;
     border-radius: 4px;
     text-align: left;
+  }
+
+  .image-card-large {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 1rem;
   }
 
   .image-card-link {
@@ -42,14 +50,18 @@ const {
     color: var(--color-gold);
   }
 
-  .image-card img {
+  .image-card-small img, .image-card-large img {
     width: 100%;
     height: auto;
     border-radius: 1rem;
     transition: all 0.2s ease-in-out;
   }
 
-  .image-card img:hover {
+  .image-card-large img {
+    max-width: 600px;
+  }
+
+  .image-card-small img:hover, .image-card-large img:hover {
     transform: scale(1.1);
   }
 
@@ -79,7 +91,7 @@ const {
   }
 
   @media (min-width: 768px) {
-    .image-card {
+    .image-card-small {
       flex: 1 1 48%;
     }
   }

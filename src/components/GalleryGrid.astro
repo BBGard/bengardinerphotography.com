@@ -3,7 +3,7 @@
  * @component GalleryGrid.astro
  * @description A gallery grid component for the homepage.
  */
-import ImageCard from "../components/ImageCard.astro"
+import ImageCard from "./ImageCard.astro"
 
 // Images
 import astroCover from "../assets/images/covers/astro-cover.webp"
@@ -13,55 +13,68 @@ import natureCover from "../assets/images/covers/nature-cover.webp"
 import ruralCover from "../assets/images/covers/rural-cover.webp"
 import wildlifeCover from "../assets/images/covers/wildlife-cover.webp"
 
+interface Props {
+  fullTitles?: boolean;
+  showDescriptions?: boolean;
+  size?: "small" | "large";
+}
+
+const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
 
 ---
-<div class="gallery-grid">
+<div class={size === "large" ? "gallery-grid-large" : "gallery-grid-small"}>
   <ImageCard
     imgSrc={astroCover.src}
     imgAlt="Astro Photography"
-    title="Astro"
-    description="Photography of the stars, the moon, the cosmos, and beyond."
+    title={fullTitles ? "Astro Photography" : "Astro"}
+    description={showDescriptions ? "Photography of the stars, the moon, the cosmos, and beyond." : ""}
     link="/astro-photography"
+    size={size}
   />
   <ImageCard
     imgSrc={seasonsCover.src}
     imgAlt="Seasons"
     title="Seasons"
-    description="Summer, Autumn, Winter, Spring. Seasonal photography throughout the year."
+    description={showDescriptions ? "Summer, Autumn, Winter, Spring. Seasonal photography throughout the year." : ""}
     link="/seasons"
+    size={size}
   />
   <ImageCard
     imgSrc={landscapesCover.src}
     imgAlt="Landscapes"
     title="Landscapes"
-    description="The bush, the fog, the light, the landscape. Photography of Australia's unique landscapes."
+    description={showDescriptions ? "The bush, the fog, the light, the landscape. Photography of Australia's unique landscapes." : ""}
     link="/landscapes"
+    size={size}
   />
   <ImageCard
     imgSrc={natureCover.src}
     imgAlt="Nature"
     title="Nature"
-    description="The natural world. Plants and bugs. Photography of the often overlooked aspects of nature."
+    description={showDescriptions ? "The natural world. Plants and bugs. Photography of the often overlooked aspects of nature." : ""}
     link="/nature"
+    size={size}
   />
   <ImageCard
     imgSrc={ruralCover.src}
     imgAlt="Rural"
     title="Rural"
-    description="Farms, fields and small towns. The classic Australian rural landscapes and their features."
+    description={showDescriptions ? "Farms, fields and small towns. The classic Australian rural landscapes and their features." : ""}
     link="/rural"
+    size={size}
   />
   <ImageCard
     imgSrc={wildlifeCover.src}
     imgAlt="Wildlife"
     title="Wildlife"
-    description="From wallabies, kangaroos, and birds to echidnas and koalas. Photography of some of Australias incredible wildlife."
+    description={showDescriptions ? "From wallabies, kangaroos, and birds to echidnas and koalas. Photography of some of Australias incredible wildlife." : ""}
     link="/wildlife"
+    size={size}
   />
 </div>
 
 <style>
-  .gallery-grid {
+  .gallery-grid-small, .gallery-grid-large {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -71,8 +84,22 @@ import wildlifeCover from "../assets/images/covers/wildlife-cover.webp"
     padding: 0 1rem;
   }
 
+  .gallery-grid-large {
+    grid-gap: 2rem;
+  }
+
+
+
   @media (max-width: 768px) {
-    .gallery-grid {
+    .gallery-grid-small {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+    }
+
+  }
+
+  @media (max-width: 1080px) {
+    .gallery-grid-large {
       grid-template-columns: repeat(1, 1fr);
       grid-template-rows: repeat(6, 1fr);
     }
