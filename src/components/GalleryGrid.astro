@@ -19,6 +19,8 @@ interface Props {
   size?: "small" | "large";
 }
 
+const galleries = await Astro.glob("../pages/galleries/*.md");
+
 const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
 
 ---
@@ -44,7 +46,7 @@ const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
     imgAlt="Landscapes"
     title="Landscapes"
     description={showDescriptions ? "The bush, the fog, the light, the landscape. Photography of Australia's unique landscapes." : ""}
-    link="/landscapes"
+    link={galleries[0].url}
     size={size}
   />
   <ImageCard

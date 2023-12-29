@@ -1,0 +1,19 @@
+---
+import Layout from "./Layout.astro";
+import "../styles/global.css";
+import FullImageHeroSection from "../components/FullImageHeroSection.astro";
+
+
+const { frontmatter } = Astro.props;
+// const imagePath: string = `../images/gallery/${frontmatter.shortTitle.toLowerCase()}/*.{jpg,jpeg,png,webp}`;
+// const imagePathString = imagePath.toString();
+// const images = await Astro.glob(imagePathString);
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description}>
+  <FullImageHeroSection id={frontmatter.title.toLowerCase()}>
+    <h1>
+      <span class="letter-highlight">{frontmatter.title[0]}</span>{frontmatter.title.slice(1)}
+    </h1>
+  </FullImageHeroSection>
+</Layout>
