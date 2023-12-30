@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import FullImageHeroSection from "../components/FullImageHeroSection.astro";
+import ContactForm from "../components/ContactForm.astro";
 import "../styles/global.css";
 
 const pageTitle = "Contact";
@@ -13,5 +14,8 @@ const description = "Contact Ben Gardiner Photography";
       <span class="letter-highlight">C</span>ontact
     </h1>
   </FullImageHeroSection>
+  <section id="contact">
+   <ContactForm />
+  </section>
 
 </Layout>

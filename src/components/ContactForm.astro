@@ -1,87 +1,111 @@
 ---
-import Social from "./Social.astro";
-import githubIcon from "../assets/github-mark-white.png";
-import linkedinIcon from "../assets/LinkedIn_icon.svg";
 import emailIcon from "../assets/email_icon.svg";
+import Divider from "./Divider.astro";
 import ButtonLink from "./ButtonLink.astro";
 ---
 
 <div class="form-container">
-  <div class="contact slide-in-bottom shakeable">
-    <h3>Get in touch!</h3>
-    <h4>Questions? Enquiries? Feedback?</h4>
-    <p>
-      I'd love to hear from you! Send me an email and I'll get back to you as
-      soon as I can.<br/><br/> Alternatively, you can find me on LinkedIn or GitHub using
-      the links below.
-    </p>
+  <div class="contact-form fade-in">
+    <h2>Get in touch!</h2>
+    <h3>Questions? Enquiries? Feedback?</h3>
+    <p>I'd love to hear from you!</p>
+    <p>Send me an email and I'll get back to you as soon as I can.</p>
     <div class="button-group">
-
       <ButtonLink
-       icon={emailIcon.src}
-       btnText="Send Email"
-       btnLink="mailto:ben.b.gardiner@gmail.com?subject=bbgard%20enquiry"
-       invert={true}
-       invertHover={true}
-       btnTarget="_blank"
-        />
-
-      <Social
-        icon={githubIcon}
-        invertHover={true}
-        platform="GitHub"
-        username="bbgard"
+        icon={emailIcon.src}
+        btnText="Send Message"
+        btnLink="mailto:ben.gardiner.photography@gmail.com?subject=Enquiry"
+        invert={true}
+        btnTarget="_blank"
       />
-      <Social
-        icon={linkedinIcon}
-        platform="LinkedIn"
-        username="in/benjamin-gardiner-6b8478263/"
-      />
+      <a href="mailto:ben.gardiner.photography@gmail.com?subject=Enquiry" target="_blank"
+        >ben.gardiner.photography@gmail.com</a
+      >
+    </div>
+    <Divider />
+    <div class="site-contact">
+      <p>Interested in the website design?</p>
+      <p>
+        Reach out to me over at <a
+          href="https://bbgard.github.io/"
+          target="_blank">bbgard.github.io</a>
+      </p>
     </div>
   </div>
-
-  <style>
-
-    .form-container {
-      max-width: 600px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    .contact {
-      border-radius: 0.25rem;
-      border: 0.125rem solid var(--accent);
-      color: var(--primary);
-      box-shadow: 6px 6px 0px var(--accent-transparent);
-      background-color: var(--secondary);
-      padding: 1.5rem;
-      -webkit-transition: all 0.2s ease-in-out;
-      -moz-transition: all 0.2s ease-in-out;
-      transition: all 0.2s ease-in-out;
-      cursor: pointer;
-    }
-
-    .contact:hover {
-      box-shadow: 3px 3px 0px var(--accent-color-transparent);
-      transform: translate(2px, 2px);
-    }
-
-    .contact h3 {
-      font-size: var(--font-size-1);
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .contact h4 {
-      margin-bottom: 2rem;
-      display: block;
-      font-weight: 500;
-      font-size: var(--font-size-3);
-    }
-
-    .contact p {
-      margin-bottom: 2rem;
-    }
-
-  </style>
 </div>
+
+<style>
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    width: 80%;
+    max-width: 600px;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .contact-form h2 {
+    margin-bottom: 1rem;
+  }
+
+
+  .contact-form p {
+    margin-bottom: 1rem;
+  }
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button-group a {
+    margin-top: 1rem;
+    color: var(--color-gold);
+    text-decoration: none;
+  }
+
+  .button-group a:hover {
+    color: var(--color-green);
+    text-decoration: underline;
+  }
+
+  .site-contact {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .site-contact p {
+    font-size: var(--font-size-4);
+  }
+
+  .site-contact a {
+    color: var(--color-gold);
+    text-decoration: none;
+  }
+
+  .site-contact a:hover {
+    color: var(--color-green);
+    text-decoration: underline;
+  }
+
+
+
+  @media (min-width: 768px) {
+    .contact-form {
+      padding: 4rem;
+    }
+  }
+</style>
