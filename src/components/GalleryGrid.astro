@@ -21,6 +21,15 @@ interface Props {
 
 const galleries = await Astro.glob("../pages/galleries/*.md");
 
+const galleryLinks = galleries.map(gallery => {
+  return {
+    title: gallery.frontmatter.shortTitle,
+    url: gallery.url
+  }
+});
+
+console.log(galleryLinks);
+
 const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
 
 ---
@@ -30,7 +39,7 @@ const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
     imgAlt="Astro Photography"
     title={fullTitles ? "Astro Photography" : "Astro"}
     description={showDescriptions ? "Photography of the stars, the moon, the cosmos, and beyond." : ""}
-    link="/astro-photography"
+    link={galleryLinks.find(gallery => gallery.title === "Astro").url}
     size={size}
   />
   <ImageCard
@@ -38,7 +47,7 @@ const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
     imgAlt="Seasons"
     title="Seasons"
     description={showDescriptions ? "Summer, Autumn, Winter, Spring. Seasonal photography throughout the year." : ""}
-    link="/seasons"
+    link={galleryLinks.find(gallery => gallery.title === "Seasons").url}
     size={size}
   />
   <ImageCard
@@ -46,7 +55,7 @@ const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
     imgAlt="Landscapes"
     title="Landscapes"
     description={showDescriptions ? "The bush, the fog, the light, the landscape. Photography of Australia's unique landscapes." : ""}
-    link={galleries[0].url}
+    link={galleryLinks.find(gallery => gallery.title === "Landscape").url}
     size={size}
   />
   <ImageCard
@@ -54,7 +63,7 @@ const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
     imgAlt="Nature"
     title="Nature"
     description={showDescriptions ? "The natural world. Plants and bugs. Photography of the often overlooked aspects of nature." : ""}
-    link="/nature"
+    link={galleryLinks.find(gallery => gallery.title === "Nature").url}
     size={size}
   />
   <ImageCard
@@ -62,7 +71,7 @@ const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
     imgAlt="Rural"
     title="Rural"
     description={showDescriptions ? "Farms, fields and small towns. The classic Australian rural landscapes and their features." : ""}
-    link="/rural"
+    link={galleryLinks.find(gallery => gallery.title === "Rural").url}
     size={size}
   />
   <ImageCard
@@ -70,7 +79,7 @@ const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
     imgAlt="Wildlife"
     title="Wildlife"
     description={showDescriptions ? "From wallabies, kangaroos, and birds to echidnas and koalas. Photography of some of Australias incredible wildlife." : ""}
-    link="/wildlife"
+    link={galleryLinks.find(gallery => gallery.title === "Wildlife").url}
     size={size}
   />
 </div>

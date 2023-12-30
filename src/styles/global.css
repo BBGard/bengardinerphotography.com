@@ -348,6 +348,30 @@ section {
   background-image: url("../assets/images/headers/header-contact.webp");
 }
 
+#header-landscape {
+  background-image: url("../assets/images/headers/header-landscape.webp");
+}
+
+#header-astro {
+  background-image: url("../assets/images/headers/header-astro.webp");
+}
+
+#header-nature {
+  background-image: url("../assets/images/headers/header-nature.webp");
+}
+
+#header-rural {
+  background-image: url("../assets/images/headers/header-rural.webp");
+}
+
+#header-seasons {
+  background-image: url("../assets/images/headers/header-seasons.webp");
+}
+
+#header-wildlife {
+  background-image: url("../assets/images/headers/header-wildlife.webp");
+}
+
 .header-title {
   align-items: center;
   width: 100%;
