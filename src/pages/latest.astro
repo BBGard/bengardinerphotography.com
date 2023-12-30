@@ -5,6 +5,15 @@ import "../styles/global.css";
 
 const pageTitle = "Latest";
 const description = "Latest photos from Ben Gardiner Photography";
+
+const allImages = await Astro.glob("../assets/images/gallery/*.webp");
+
+// Select the latest 12 images by date
+const latestImages = allImages
+  .sort((a, b) => b.date - a.date)
+  .slice(0, 12);
+
+  console.log(latestImages);
 ---
 
 <Layout title={pageTitle} description={description}>
