@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ReturnToTopButton from "../components/ReturnToTopButton.astro";
+import Divider from "../components/Divider.astro";
 interface Props {
   title: string;
   description: string;
@@ -38,6 +39,7 @@ const { description } = Astro.props;
       <slot />
     </main>
     <ReturnToTopButton />
+    <Divider margin="none"/>
     <Footer />
     <script>
       import "../scripts/menu.js";
