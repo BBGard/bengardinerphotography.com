@@ -1,19 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import FullImageHeroSection from "../components/FullImageHeroSection.astro";
+import GallerySection from "../components/GallerySection.astro";
 import "../styles/global.css";
 
 const pageTitle = "Latest";
 const description = "Latest photos from Ben Gardiner Photography";
 
 const allImages = await Astro.glob("../assets/images/gallery/*.webp");
+const galleries = ["astro", "landscape", "rural", "seasons", "nature", "wildlife"]
 
-// Select the latest 12 images by date
-const latestImages = allImages
-  .sort((a, b) => b.date - a.date)
-  .slice(0, 12);
+// Select the last 2 images from each gallery
+const latestImages = galleries.map(gallery => {
+  const galleryImages = allImages.filter(image => image.default.src.includes(gallery))
+  return galleryImages.slice(-2)
+}).flat()
 
-  console.log(latestImages);
 ---
 
 <Layout title={pageTitle} description={description}>
@@ -22,7 +24,6 @@ const latestImages = allImages
       <span class="letter-highlight">L</span>atest
     </h1>
   </FullImageHeroSection>
-
-
+  <GallerySection images={latestImages} />
 
 </Layout>
