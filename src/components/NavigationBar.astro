@@ -3,6 +3,10 @@ import Hamburger from "./Hamburger.astro";
 import logo from "../assets/Nameplate 2023_180.png";
 import logoRetina from "../assets/Nameplate 2023_retina.png";
 
+// Get current page to disbale transparancy on pages with no header image
+const currentPath = Astro.url.pathname;
+const transparent = !currentPath.includes("privacy-policy") && !currentPath.includes("cookie-policy-au");
+
 const Navbar = {
   logo: logo,
   logoRetina: logoRetina,
@@ -17,7 +21,7 @@ const Navbar = {
 };
 ---
 
-<nav class="navbar">
+<nav class={transparent ? "navbar" : "navbar opaque disable-transparency"}>
   <div class="nav-container">
     <a class="logo" href="/">
       <img src={Navbar.logo.src} alt="Ben Gardiner Photography Home" />
