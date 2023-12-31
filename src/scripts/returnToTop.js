@@ -7,7 +7,7 @@ returnToTopButton.setAttribute('title', 'Return to top of page');
 
 // Show the button when scrolling down
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 100) {
+  if (window.scrollY > 100 && !returnToTopButton.classList.contains('hidden')) {
     returnToTopButton.style.display = 'block';
   } else {
     returnToTopButton.style.display = 'none';

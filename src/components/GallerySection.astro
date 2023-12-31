@@ -1,64 +1,80 @@
 ---
-
+import LightBoxImage from "./LightBoxImage.astro";
 interface Props {
   images: any;
 }
 
-const {images} = Astro.props;
+const { images } = Astro.props;
 ---
-<section class="gallery">
 
+<section class="gallery">
   <div class="gallery-container">
     {
       images.map((image) => (
-        <div class="gallery-item fade-in">
-          <img src={image.default.src} alt="" loading="lazy" />
-        </div>
+        <LightBoxImage
+          imageSrc={image.default.src}
+          imageAlt=""
+          customClass="gallery-item"
+        />
       ))
     }
+  </div>
+  <div class="lightbox"><img class="fullscreen-image" src="" alt="" /></div>
 
-</section>
+  <script>
+    import "../scripts/lightboxImage.js";
+  </script>
 
-<style>
-  .gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 0;
-  }
-
-  .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 1rem;
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 1rem;
-  }
-
-  .gallery-item {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  .gallery-item img:hover {
-    transform: scale(1.05);
-  }
-
-  @media (min-width: 768px) {
-    .gallery-container {
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  <style>
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
     }
-  }
-</style>
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 1rem;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 1rem;
+    }
+
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100svh;
+      background-color: var(--secondary);
+      z-index: -3;
+      opacity: 0;
+    }
+
+    .lightbox.active {
+      display: flex;
+      z-index: 3;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+      cursor: zoom-out;
+    }
+
+    .lightbox .fullscreen-image {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      }
+    }
+  </style>
+</section>

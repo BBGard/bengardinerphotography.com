@@ -1,0 +1,20 @@
+---
+interface Props {
+  imageSrc: string;
+  imageAlt: string;
+  customClass?: string;
+}
+
+const { imageSrc, imageAlt, customClass="" } = Astro.props;
+---
+
+<div class=`fade-in ${customClass}`>
+  <img class="lightbox-image" src={imageSrc} alt={imageAlt} loading="lazy" />
+</div>
+
+<style>
+ .lightbox-image {
+   cursor: pointer;
+ }
+
+</style>
