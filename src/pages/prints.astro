@@ -1,6 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ButtonLink from "../components/ButtonLink.astro";
+import TextImageSection from "../components/TextImageSection.astro";
 import FullImageHeroSection from "../components/FullImageHeroSection.astro";
+import BedroomMockup from "../assets/images/Bedroom_mockup.webp";
+import LivingRoomMockup from "../assets/images/Living_room_mockup.webp";
 import "../styles/global.css";
 
 const pageTitle = "Prints";
@@ -13,5 +17,18 @@ const description = "Download or purchase prints from Ben Gardiner Photography";
       <span class="letter-highlight">P</span>rints
     </h1>
   </FullImageHeroSection>
+  <section id="prints">
+    <TextImageSection title="Prints" imageSrc={LivingRoomMockup.src} imageAlt="Two large portrait orientation images of rivers mounted on a concreete wall behind an L-shaped couch in a living room.">
+      <div class="print-info">
+        <p>All photos are available as high quality Giclée prints on 310gsm cotton rag, with the choice of an optional handmade FSC certified Victorian Ash Timber frame.</p>
+        <ButtonLink btnLink="https://ben-gardiner-photography.square.site/" btnTarget="_blank" btnText="Shop Prints" customClass="mb-2"/>
+
+        <p>Alternativly, digital versions of all images are available to download and print at home via Etsy.</p>
+        <ButtonLink btnLink="https://www.etsy.com/au/shop/BenGardinerPhoto" btnTarget="_blank" btnText="Shop Downloads" customClass="mb-2 disabled"/>
+        <p>If you can't find an image you're after, or just need some advice/tips, feel free to get in touch!</p>
+        <ButtonLink btnLink="/contact" btnText="Contact" />
+      </div>
+    </TextImageSection>
+  </section>
 
 </Layout>
