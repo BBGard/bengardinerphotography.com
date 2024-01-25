@@ -8,7 +8,7 @@ import Gallery from "../pages/gallery.astro";
 const { frontmatter } = Astro.props;
 
 // Get all images in the gallery folder
-const allImages = await Astro.glob("../assets/images/gallery/*.webp");
+const allImages = await Astro.glob("../assets/images/Gallery/*.webp");
 
 // Filter the images to only include the ones that match the gallery name
 const images = allImages.filter(image => image.default.src.includes(frontmatter.shortTitle.toLowerCase()));
