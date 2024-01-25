@@ -7,16 +7,16 @@ import "../styles/global.css";
 const pageTitle = "Latest";
 const description = "Latest photos from Ben Gardiner Photography";
 
-const allImages = await Astro.glob("../assets/images/Gallery/*.webp");
-const galleries = ["astro", "landscape", "rural", "seasons", "nature", "wildlife"]
+// const allImages = await Astro.glob("../assets/images/Gallery/*.webp");
+// const galleries = ["astro", "landscape", "rural", "seasons", "nature", "wildlife"]
 
 // Select the last 2 images from each gallery
-const latestImages = galleries.map(gallery => {
-  const galleryImages = allImages.filter(image => image.default.src.includes(gallery))
-  return galleryImages.slice(-2)
-}).flat()
+// const latestImages = galleries.map(gallery => {
+//   const galleryImages = allImages.filter(image => image.default.src.includes(gallery))
+//   return galleryImages.slice(-2)
+// }).flat()
 
-console.log(latestImages);
+const latestImages = await Astro.glob("../assets/images/Latest/*.webp");
 
 ---
 
