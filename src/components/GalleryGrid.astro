@@ -31,9 +31,6 @@ const galleryLinks = galleries.map(gallery => {
 
 const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
 
-console.log("DEBUG:")
-console.log(astroCover);
-
 ---
 <div class={size === "large" ? "gallery-grid-large" : "gallery-grid-small"}>
   <ImageCard
