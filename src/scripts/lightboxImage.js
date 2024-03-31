@@ -2,14 +2,8 @@ const lightboxImages = document.querySelectorAll(".lightbox-image");
 const lightbox = document.querySelector(".lightbox");
 const returnToTopButton = document.querySelector('.return-to-top');
 
-console.log(returnToTopButton);
-
-
-console.log(lightbox);
-
 lightboxImages.forEach((image) => {
   image.addEventListener("click", (event) => {
-    console.log("click");
     lightbox.querySelector("img").src = event.target.src;
     lightbox.querySelector("img").alt = event.target.alt;
     lightbox.classList.add("active");

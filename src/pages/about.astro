@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import FullImageHeroSection from "../components/FullImageHeroSection.astro";
 import TextImageSection from "../components/TextImageSection.astro";
-import headshot2024 from "../assets/images/headshot_2023_small.webp";
+import headshot2024 from "../assets/images/Headshot_2023_small.webp";
 import "../styles/global.css";
 
 const pageTitle = "About";
@@ -15,12 +15,14 @@ const description = "About Ben Gardiner Photography";
       <span class="letter-highlight">A</span>bout
     </h1>
   </FullImageHeroSection>
-  <TextImageSection id="about" title="About Ben Gardiner" imageSrc={headshot2024.src}, imageAlt="Ben wearing glasses." btnText="Get In Touch" btnLink="/contact">
+  <TextImageSection id="about" title="About Ben Gardiner" imageSrc={headshot2024.src}, imageAlt="Ben wearing glasses." btnText="Contact" btnLink="/contact">
     <p>Born and raised in country Victoria, I've always been captivated by the beauty of   the natural world.</p>
     <p>What started as a simple interest in photography evolved into a full-blown passion as I taught myself the principles of DSLR photography.</p>
     <p>I now spend much of my spare time capturing and sharing the beauty of the natural world as seen through through my lens.</p>
     <p>My love for photography has become a huge part of my life, and I am constantly striving to improve and share my knowledge with others.</p>
-    <p>Please explore my website and don't hesitate to <a href="/contact">reach out.</a></p>
+    <p>Please explore my website and don't hesitate to <a href="mailto:ben.gardiner.photography@gmail.com?subject=Enquiry" target="_blank"
+      >get in touch.</a
+    ></p>
   </TextImageSection>
 </Layout>
 
