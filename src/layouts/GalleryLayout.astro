@@ -3,16 +3,17 @@ import Layout from "./Layout.astro";
 import "../styles/global.css";
 import FullImageHeroSection from "../components/FullImageHeroSection.astro";
 import GallerySection from "../components/GallerySection.astro";
-import Gallery from "../pages/gallery.astro";
+// import Gallery from "../pages/gallery.astro";
 
 const { frontmatter } = Astro.props;
 
 // Get all images in the gallery folder
-const allImages = await Astro.glob("../assets/images/gallery/*.webp");
+const allImages = await Astro.glob("../assets/images/Gallery/*.webp");
 
 // Filter the images to only include the ones that match the gallery name
-const images = allImages.filter(image => image.default.src.includes(frontmatter.shortTitle.toLowerCase()));
-
+const images = allImages.filter((image) => {
+  return image.default.src.includes(frontmatter.shortTitle.toLowerCase());
+});
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.description}>
@@ -24,5 +25,4 @@ const images = allImages.filter(image => image.default.src.includes(frontmatter.
     </h1>
   </FullImageHeroSection>
   <GallerySection images={images} />
-
 </Layout>
