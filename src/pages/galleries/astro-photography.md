@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/GalleryLayout.astro"
 title: Astro Photography
-shortTitle: Astro
+shortTitle: Astrophotography
 author: Benjamin Gardiner
 description: "Photography of the stars, the moon, the cosmos, and beyond."
 ---
