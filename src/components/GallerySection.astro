@@ -12,8 +12,10 @@ const { images } = Astro.props;
     {
       images.map((image) => (
         <LightBoxImage
-          imageSrc={image.default.src}
-          imageAlt=""
+          src={image.default.src}
+          width={image.default.width}
+          height={image.default.height}
+          alt=""
           customClass="gallery-item"
         />
       ))

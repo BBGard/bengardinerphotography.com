@@ -1,0 +1,13 @@
+---
+/**
+ * Astro Cloud Image component - for use with Astro Cloudinary
+ */
+interface Props {
+  src: string;
+  width: string;
+  height: string;
+  alt: string;
+}
+---
+
+<img loading="lazy" {...Astro.props} />
