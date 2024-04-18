@@ -2,12 +2,36 @@
 /**
  * Astro Cloud Image component - for use with Astro Cloudinary
  */
+ import { Cloudinary } from '@cloudinary/url-gen';
+
 interface Props {
   src: string;
   width: string;
   height: string;
   alt: string;
+  customClass?: string;
+}
+
+const { src, customClass, ...props } = Astro.props; // Destructure the props
+
+// Create a new Cloudinary instance
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: 'dcxgtfgi2'
+  }
+});
+
+let cldSrc = cld.image(src).format('auto').delivery('q_auto'); // Create a new image instance, optimize the image and set the delivery type to auto
+let srcUrl; // Variable to store the image URL
+
+// Check if the image is hosted on cloudinary
+if(src.includes('res.cloudinary.com')) {
+  cldSrc.setDeliveryType('fetch'); // Set the delivery type to fetch
+  srcUrl = cldSrc.toURL(); // Get the image URL
+} else {
+  // Source is local (astro)
+  srcUrl = src; // Set the source URL
 }
 ---
 
-<img loading="lazy" {...Astro.props} />
+<img src={srcUrl} loading="lazy" class={customClass} {...props} />
