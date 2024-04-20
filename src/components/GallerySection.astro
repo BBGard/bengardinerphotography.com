@@ -21,7 +21,12 @@ const { images } = Astro.props;
       ))
     }
   </div>
-  <div class="lightbox"><img class="fullscreen-image" src="" alt="" /></div>
+  <div class="lightbox">
+    <img class="fullscreen-image" src="" alt="" />
+    <div class="close-modal" hidden>
+      <button class="close-modal-button">x</button>
+    </div>
+  </div>
 
   <script>
     import "../scripts/lightboxImage.js";
@@ -51,7 +56,6 @@ const { images } = Astro.props;
       left: 0;
       width: 100dvw;
       height: 100dvh;
-      /* background-color: var(--secondary); */
       background-color: var(--background-dark);
       z-index: -3;
       opacity: 0;
@@ -75,6 +79,33 @@ const { images } = Astro.props;
       border: 16px solid var(--secondary);
     }
 
+    .close-modal {
+      position: fixed;
+      top: 50px;
+      right: 50px;
+      z-index: 100;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .close-modal-button {
+      background-color: transparent;
+      border: none;
+      color: var(--secondary);
+      cursor: pointer;
+      font-family;: var(--font-primary);
+      font-size: var(--font-size-5);
+      text-transform: uppercase;
+      padding: 0.25rem 1rem;
+      border-radius: 1rem;
+      background-color: var(--color-gold);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .close-modal-button:hover {
+      color: var(--color-gold);
+      background-color: var(--color-green);
+      transform: scale(1.1);
+    }
 
     @media (min-width: 768px) {
       .gallery-container {

@@ -21,8 +21,10 @@ function scrollToTop(duration) {
 // Show the button when scrolling down
 window.addEventListener("scroll", () => {
   if (window.scrollY > 100 && !returnToTopButton.classList.contains("hidden")) {
+    console.log('yep')
     returnToTopButton.style.display = "block";
   } else {
+    console.log('nope')
     returnToTopButton.style.display = "none";
   }
 });
@@ -32,5 +34,16 @@ returnToTopButton.addEventListener("click", (event) => {
   // Disable default behaviour
   event.preventDefault();
 
-  scrollToTop(600);
+  // Check if smooth scrolling is supported
+  if ("scrollBehavior" in document.documentElement.style) {
+    // Smooth scrolling is supported
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  } else {
+    // Smooth scrolling is not supported, use polyfill
+    const duration = 600;
+    scrollToTop(duration);
+  }
 });
