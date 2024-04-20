@@ -12,8 +12,8 @@ const { src, alt, width, height, customClass="" } = Astro.props;
 ---
 
 <div class=`fade-in ${customClass}`>
-  <!-- <img class="lightbox-image" src={imageSrc} alt={imageAlt} loading="lazy" /> -->
-  <CldImage src={src} width={width} height={height} alt={alt} customClass=`lightbox-image ${customClass}`/>
+  <img class="lightbox-image" src={src} alt={alt} loading="lazy" />
+  <!-- <CldImage src={src} width={width} height={height} alt={alt} customClass=`lightbox-image ${customClass}`/> -->
 </div>
 
 <style>
