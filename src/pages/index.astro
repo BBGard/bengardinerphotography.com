@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import FullImageHeroSection from "../components/FullImageHeroSection.astro";
+import ContactForm from "../components/ContactForm.astro";
 import ButtonLink from "../components/ButtonLink.astro";
 import GalleryGrid from "../components/GalleryGrid.astro";
 import ImageQuote from "../components/ImageQuote.astro";
@@ -72,7 +73,7 @@ const description =
 	</TextImageSection>
 
 	<section id="home-contact">
-		<h2>Questions?</h2>
+		<!-- <h2>Questions?</h2>
 		<p>Prints, downloads, tips, etc.
 			<br/>
 			If you have any question at all, feel free to ask.
@@ -82,7 +83,10 @@ const description =
 			btnText="Contact"
 			btnLink="/contact"
 			customClass="mt-2"
-		/>
+		/> -->
+
+		<ContactForm />
+	</section>
 
 </Layout>
 
@@ -93,10 +97,7 @@ const description =
 		position: static;
     width: 100%;
 
-		background: linear-gradient(
-			rgba(36, 76, 95, 0.5),
-			rgba(0, 0, 0, 0.5)
-		);
+
 		margin-bottom: 0;
 	}
 

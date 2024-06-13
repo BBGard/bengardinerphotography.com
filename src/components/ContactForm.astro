@@ -7,9 +7,11 @@ import ButtonLink from "./ButtonLink.astro";
 <div class="form-container">
   <div class="contact-form fade-in">
     <h2>Get in touch!</h2>
-    <h3>Questions? Enquiries? Feedback?</h3>
+    <!-- <p>Questions? Enquiries? Feedback?</p>
     <p>I'd love to hear from you!</p>
-    <p>Send me an email and I'll get back to you as soon as I can.</p>
+    <p>Send me an email and I'll get back to you as soon as I can.</p> -->
+    <p>Prints, downloads, tips, etc.</p>
+    <p>If you have any question at all, feel free to ask.</p>
     <div class="button-group">
       <ButtonLink
         icon={emailIcon.src}
@@ -18,8 +20,9 @@ import ButtonLink from "./ButtonLink.astro";
         invert={true}
         btnTarget="_blank"
       />
-      <a href="mailto:ben.gardiner.photography@gmail.com?subject=Enquiry" target="_blank"
-        >ben.gardiner.photography@gmail.com</a
+      <a
+        href="mailto:ben.gardiner.photography@gmail.com?subject=Enquiry"
+        target="_blank">ben.gardiner.photography@gmail.com</a
       >
     </div>
     <Divider />
@@ -28,7 +31,8 @@ import ButtonLink from "./ButtonLink.astro";
       <p>
         Reach out to me over at <a
           href="https://bbgard.github.io/"
-          target="_blank">bbgard.github.io</a>
+          target="_blank">bbgard.github.io</a
+        >
       </p>
     </div>
   </div>
@@ -57,8 +61,14 @@ import ButtonLink from "./ButtonLink.astro";
 
   .contact-form h2 {
     margin-bottom: 1rem;
+    /* text-align: left; */
   }
 
+  .contact-form h2::after {
+    width: 70%;
+    /* margin: 0.5rem 0 1rem 0; */
+
+  }
 
   .contact-form p {
     margin-bottom: 1rem;
@@ -100,8 +110,6 @@ import ButtonLink from "./ButtonLink.astro";
     color: var(--color-green);
     text-decoration: underline;
   }
-
-
 
   @media (min-width: 768px) {
     .contact-form {
