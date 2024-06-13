@@ -86,11 +86,15 @@ const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
   .gallery-grid-small, .gallery-grid-large {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;;
+    grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr;
+   /* grid-template-rows: repeat(2, 1fr); */
     grid-gap: 1rem;
     margin: 0 auto;
     max-width: 1200px;
     padding: 0 1rem;
+
   }
 
   .gallery-grid-large {
@@ -98,19 +102,18 @@ const {fullTitles = false, showDescriptions = true, size="small"} = Astro.props;
   }
 
 
-
-  @media (max-width: 768px) {
-    .gallery-grid-small {
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(6, 1fr);
-    }
-
-  }
-
-  @media (max-width: 1080px) {
-    .gallery-grid-large {
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(6, 1fr);
+  @media screen and (max-width: 991px) {
+    .gallery-grid-small, .gallery-grid-large {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .gallery-grid-small, .gallery-grid-large {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
 </style>
