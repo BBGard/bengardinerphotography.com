@@ -304,7 +304,7 @@ section {
   align-items: center;
   margin-bottom: 10%;
 }
-
+/*
 .header-image {
   position: static;
   width: 100%;
@@ -326,63 +326,17 @@ section {
   background: linear-gradient(180deg, #08415c 0%, #1c110a 100%);
   opacity: 0.6;
   height: 100svh;
-}
+} */
 
-#header-home {
-  background-image: url("../assets/images/headers/header-home.webp");
-}
 
-#header-latest {
-  background-image: url("../assets/images/headers/header-latest.webp");
-}
 
-#header-gallery {
-  background-image: url("../assets/images/headers/header-gallery.webp");
-}
-
-#header-about {
-  background-image: url("../assets/images/headers/header-about.webp");
-}
-
-#header-contact {
-  background-image: url("../assets/images/headers/header-contact.webp");
-}
-
-#header-landscape {
-  background-image: url("../assets/images/headers/header-landscape.webp");
-}
-
-#header-astro {
-  background-image: url("../assets/images/headers/header-astro.webp");
-}
-
-#header-nature {
-  background-image: url("../assets/images/headers/header-nature.webp");
-}
-
-#header-rural {
-  background-image: url("../assets/images/headers/header-rural.webp");
-}
-
-#header-seasons {
-  background-image: url("../assets/images/headers/header-seasons.webp");
-}
-
-#header-wildlife {
-  background-image: url("../assets/images/headers/header-wildlife.webp");
-}
-
-#header-prints {
-  background-image: url("../assets/images/headers/header-prints.webp");
-}
-
-.header-title {
+/* .header-title {
   align-items: center;
   width: 100%;
   position: absolute;
   top: 30%;
   text-align: center;
-}
+} */
 
 .letter-highlight {
   animation: color-change 10s infinite alternate;
