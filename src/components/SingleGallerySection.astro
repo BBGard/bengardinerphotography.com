@@ -92,7 +92,7 @@ const { id, imageSrc, imageAlt, direction } = Astro.props;
     max-width: 100%;
     margin-right: 0;
     padding: 0.5rem;
-    box-shadow: 3px 3px 10px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
   }
 
   .text-block-33 {
@@ -116,6 +116,11 @@ const { id, imageSrc, imageAlt, direction } = Astro.props;
       height: 100%;
     }
 
+    .single-gallery-container-reverse {
+      flex-flow: column;
+      height: 100%;
+    }
+
     .photo-block-66 {
       max-width: 100%;
     }
@@ -129,6 +134,11 @@ const { id, imageSrc, imageAlt, direction } = Astro.props;
 
   @media screen and (max-width: 479px) {
     .single-gallery-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .single-gallery-container-reverse {
         padding-left: 0;
         padding-right: 0;
     }
