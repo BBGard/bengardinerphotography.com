@@ -29,6 +29,8 @@ const galleryLinks = galleries.map((gallery) => {
   };
 });
 
+console.log("gallery links: ", galleryLinks);
+
 // Get images from supabase storage
 // const data = supabase.storage.from("photo-bucket").list("images");
 
@@ -169,7 +171,7 @@ const galleryLinks = galleries.map((gallery) => {
   <ButtonLink
     size="normal"
     btnText="Rural & Urban Gallery"
-    btnLink={galleryLinks.find(gallery => gallery.title === "Rural & Urban").url}
+    btnLink={galleryLinks.find(gallery => gallery.title === "Rural-Urban").url}
     customClass="mt-1"
   />
 </SingleGallerySection>
