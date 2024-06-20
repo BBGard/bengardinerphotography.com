@@ -8,10 +8,17 @@ import ImageQuote from "../components/ImageQuote.astro";
 import TextImageSection from "../components/TextImageSection.astro";
 import selfPortrait from "../assets/images/self-portrait-600.webp";
 import "../styles/global.css";
+import { supabase } from "../lib/supabase.ts";
 
 const pageTitle = "Home";
 const description =
   "Ben Gardiner Photography Nature. Landscape. Wildlife. Gallery Gallery Astro Photography of the stars, the moon, the cosmos, and beyond. Seasons Summer, Autumn, Winter, Spring.Seasonal photography throughout the year. Landscapes The bush, the fog, the light, the landscape.Photography of Australia’s unique landscapes. Nature The natural world. Plants and bugs. Photography of the often overlooked aspects of … Home Read More »";
+
+// Get images from supabase storage
+const data = supabase.storage.from('photo-bucket').list('images');
+
+console.log(data)
+
 ---
 
 <Layout title={pageTitle} description={description}>
@@ -30,7 +37,7 @@ const description =
       size="large"
       btnText="Gallery"
       btnLink="#gallery"
-      customClass="mt-2 scroll-btn"
+      customClass="mt-1 scroll-btn"
     />
   </FullImageHeroSection>
 
@@ -107,11 +114,40 @@ const description =
 	}
 
 	#subtitle span {
-		font-size: var(--font-size-3);
+		font-size: 1.5rem;
 	}
 
-	#hquote-text {
+
+	@media screen and (max-width: 991px){
+    #subtitle span {
+			font-size: 1.2rem;
+		}
+  }
+
+
+
+	#quote-text {
 		max-width: 600px;
 	}
+
+	h1 {
+		font-size: 5rem;
+		line-height: 4.5rem;
+	}
+
+	@media screen and (max-width: 991px){
+    h1 {
+			font-size: 4rem;
+			line-height: 4rem;
+		}
+  }
+
+
+	@media screen and (max-width: 767px){
+    h1 {
+			font-size: 3rem;
+			line-height: 3rem;
+		}
+  }
 
 </style>

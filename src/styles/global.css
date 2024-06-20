@@ -121,6 +121,8 @@ meter {
   --accent-light: #a1a1a1;
   --accent-form: #e7e7e7;
   --accent-transparent: rgba(76, 76, 76, 0.6);
+  --color-nav: rgba(0, 0, 0, 0.6);
+  --color-nav-opaque: rgba(0, 0, 0, 0.9);
   --accent-color: #a800ab;
   --accent-color-light: #fdf6ff;
   --accent-color-transparent: rgba(168, 0, 171, 0.6);
@@ -435,16 +437,20 @@ blockquote p {
 .btn {
   display: inline-block;
   /* padding: 1rem 2rem; */
+  border: 2px solid var(--color-gold);
   border-radius: 1rem;
-  background-color: var(--color-gold);
+  /* background-color: var(--color-gold); */
   color: var(--secondary);
   text-decoration: none;
   text-align: center;
+  letter-spacing: 2px;
+  line-height: 20px;
   font-size: var(--font-size-3);
   color: var(--secondary);
   font-family: var(--font-primary);
   font-weight: 500;
   cursor: pointer;
+  padding: 0.6rem 1rem;
   transition: all 0.2s ease-in-out;
 }
 
