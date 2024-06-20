@@ -3,22 +3,36 @@ import Layout from "../layouts/Layout.astro";
 import FullImageHeroSection from "../components/FullImageHeroSection.astro";
 import ContactForm from "../components/ContactForm.astro";
 import ButtonLink from "../components/ButtonLink.astro";
+import SingleGallerySection from "../components/SingleGallerySection.astro";
 import GalleryGrid from "../components/GalleryGrid.astro";
 import ImageQuote from "../components/ImageQuote.astro";
 import TextImageSection from "../components/TextImageSection.astro";
 import selfPortrait from "../assets/images/self-portrait-600.webp";
 import "../styles/global.css";
 import { supabase } from "../lib/supabase.ts";
+import landscapeCover from "../assets/images/Gallery/landscape/landscape-8.jpg";
+import wildlifeCover from "../assets/images/Gallery/wildlife/wildlife-27.jpg";
+import natureCover from "../assets/images/Gallery/nature/nature-24.jpg";
+import ruralUrbanCover from "../assets/images/Gallery/rural-urban/rural-urban-26.jpg";
 
 const pageTitle = "Home";
 const description =
   "Ben Gardiner Photography Nature. Landscape. Wildlife. Gallery Gallery Astro Photography of the stars, the moon, the cosmos, and beyond. Seasons Summer, Autumn, Winter, Spring.Seasonal photography throughout the year. Landscapes The bush, the fog, the light, the landscape.Photography of Australia’s unique landscapes. Nature The natural world. Plants and bugs. Photography of the often overlooked aspects of … Home Read More »";
 
+// Setup galleries
+const galleries = await Astro.glob("../pages/galleries/*.md");
+
+const galleryLinks = galleries.map((gallery) => {
+  return {
+    title: gallery.frontmatter.shortTitle,
+    url: gallery.url,
+  };
+});
+
 // Get images from supabase storage
-const data = supabase.storage.from('photo-bucket').list('images');
+// const data = supabase.storage.from("photo-bucket").list("images");
 
-console.log(data)
-
+// console.log(data);
 ---
 
 <Layout title={pageTitle} description={description}>
@@ -35,16 +49,136 @@ console.log(data)
     </h3>
     <ButtonLink
       size="large"
-      btnText="Gallery"
+      btnText="Explore"
       btnLink="#gallery"
       customClass="mt-1 scroll-btn"
     />
   </FullImageHeroSection>
 
-  <section id="gallery">
+  <SingleGallerySection
+    id="gallery"
+    imageSrc={landscapeCover.src}
+    imageAlt="Photo of an old hut in the bush surrounded by flowering bluebells."
+    direction="normal"
+  >
+    <h3>The Untamed Beauty of the Australian Landscape</h3>
+    <p class="paragraph-text">
+      <strong>Ancient eucalyptus trees and vibrant wildflowers </strong>create a
+      rich tapestry of life. Enchanting fog transforms the landscape into an
+      ethereal vision, adding a touch of magic, while unique golden light bathes
+      the land, turning every moment into a masterpiece.
+    </p>
+    <p class="paragraph-text-emphasis">
+      This rugged landscape invites solitude and introspection.
+    </p>
+    <p class="paragraph-text">
+      <strong>Dramatic coastlines</strong> where powerful oceans meet serene beaches
+      offer a symphony of sight and sound. Lush rainforests, with towering trees
+      and dense undergrowth, reveal a primeval world rich with biodiversity and hidden
+      wonders.
+    </p>
+    <p class="paragraph-text-emphasis">
+      This gallery captures the essence of Australia's diverse and awe-inspiring
+      natural wonders.
+    </p>
+    <ButtonLink
+      size="normal"
+      btnText="Landscape Gallery"
+      btnLink={galleryLinks.find((gallery) => gallery.title === "Landscape")
+        .url}
+      customClass="mt-1"
+    />
+  </SingleGallerySection>
+
+  <SingleGallerySection
+    id="wildlife"
+    imageSrc={wildlifeCover.src}
+    imageAlt="Photo of kangaroos and koalas in their natural habitat."
+		direction="reverse"
+  >
+    <h3>The Remarkable Wildlife of Australia</h3>
+    <p class="paragraph-text">
+      <strong>Australia's wildlife</strong> is a captivating blend of unique and
+      diverse species.
+      <strong> Kangaroos and koalas</strong>, iconic symbols of the country,
+      roam freely in their natural habitats.
+      <strong> Colorful parrots and exotic birds</strong> fill the skies, their vibrant
+      plumage and melodious calls creating a lively atmosphere.
+    </p>
+    <p class="paragraph-text">
+      <strong>Mysterious marsupials</strong> like the wombat add to the intrigue,
+      while the elusive platypus showcases nature's creativity.
+      <strong> Reptiles and amphibians</strong> such as the green tree frog reflect
+      the adaptability and resilience of Australian wildlife. Each species contributes
+      to a rich ecosystem, making Australia a sanctuary for nature lovers and wildlife
+      enthusiasts.
+    </p>
+    <p class="paragraph-text-emphasis">
+      This gallery section showcases the remarkable diversity and uniqueness of
+      Australia's wildlife.
+    </p>
+    <ButtonLink
+      size="normal"
+      btnText="Wildlife Gallery"
+      btnLink={galleryLinks.find((gallery) => gallery.title === "Wildlife").url}
+      customClass="mt-1"
+    />
+  </SingleGallerySection>
+
+	<SingleGallerySection
+  id="nature"
+  imageSrc={natureCover.src}
+  imageAlt="Photo of a waterfall in a lush Australian rainforest."
+	direction="normal"
+>
+  <h3>The Tranquil Beauty of Nature</h3>
+  <p class="paragraph-text">
+    <strong>Australian nature</strong> is a sanctuary of tranquility and diversity. From lush rainforests with towering trees and dense undergrowth to serene waterfalls and winding rivers, the landscape is a testament to nature's artistry.
+  </p>
+  <p class="paragraph-text">
+    <strong>Native wildlife</strong> thrives in these natural habitats, adding to the richness and complexity of the ecosystem. Each corner reveals hidden wonders and invites exploration, making Australia a paradise for nature enthusiasts.
+  </p>
+  <p class="paragraph-text-emphasis">
+    This gallery celebrates the serene beauty and biodiversity of nature.
+  </p>
+  <ButtonLink
+    size="normal"
+    btnText="Nature Gallery"
+    btnLink={galleryLinks.find(gallery => gallery.title === "Nature").url}
+    customClass="mt-1"
+  />
+</SingleGallerySection>
+
+<SingleGallerySection
+  id="rural-urban"
+  imageSrc={ruralUrbanCover.src}
+  imageAlt="Photo of a quaint Australian rural town at sunset."
+	direction="reverse"
+>
+  <h3>Australian Rural & Urban Landscapes</h3>
+  <p class="paragraph-text">
+    From picturesque rural towns nestled in rolling hills to bustling urban centers pulsating with life, Australian landscapes offer a diverse tapestry of experiences.
+  </p>
+  <p class="paragraph-text">
+    <strong>Rural areas</strong> showcase vast open spaces, agricultural landscapes, and close-knit communities rooted in tradition and resilience. Meanwhile, <strong>urban environments</strong> boast modern architecture, cultural diversity, and vibrant cityscapes that never sleep.
+  </p>
+  <p class="paragraph-text-emphasis">
+    This gallery section captures the essence of both rural charm and urban vibrancy in Australia.
+  </p>
+  <ButtonLink
+    size="normal"
+    btnText="Rural & Urban Gallery"
+    btnLink={galleryLinks.find(gallery => gallery.title === "Rural & Urban").url}
+    customClass="mt-1"
+  />
+</SingleGallerySection>
+
+
+
+  <!-- <section id="gallery">
     <h2>Gallery</h2>
     <GalleryGrid />
-  </section>
+  </section> -->
 
   <ImageQuote id="home-quote" author="Carl Sagan">
     <p class="block-quote">
@@ -55,32 +189,32 @@ console.log(data)
       stand...<br /><br />…To me, it underscores our responsibility to deal more
       kindly with one another, and to preserve and cherish the pale blue dot,
       the only home we've ever known.”
-			<br /><br />
-			- Carl Sagan -
-		</p>
+      <br /><br />
+      - Carl Sagan -
+    </p>
   </ImageQuote>
 
-	<TextImageSection
-		id="about"
-		title="About Me"
-		imageSrc={selfPortrait.src}
-		imageAlt="Ben Gardiner"
-		btnLink="/about"
-		btnText="Learn More"
-	>
-		<p>
-			Born and raised in country Victoria, I've always had a fascination
-			with the natural world.
-		</p>
-		<p>
-			This website is a small snippet of the things I've found interesting,
-			beautiful, unique and amazing.
-		</p>
-		<p>I hope you enjoy!</p>
-	</TextImageSection>
+  <TextImageSection
+    id="about"
+    title="About Me"
+    imageSrc={selfPortrait.src}
+    imageAlt="Ben Gardiner"
+    btnLink="/about"
+    btnText="Learn More"
+  >
+    <p>
+      Born and raised in country Victoria, I've always had a fascination with
+      the natural world.
+    </p>
+    <p>
+      This website is a small snippet of the things I've found interesting,
+      beautiful, unique and amazing.
+    </p>
+    <p>I hope you enjoy!</p>
+  </TextImageSection>
 
-	<section id="home-contact">
-		<!-- <h2>Questions?</h2>
+  <section id="home-contact">
+    <!-- <h2>Questions?</h2>
 		<p>Prints, downloads, tips, etc.
 			<br/>
 			If you have any question at all, feel free to ask.
@@ -92,62 +226,55 @@ console.log(data)
 			customClass="mt-2"
 		/> -->
 
-		<ContactForm />
-	</section>
-
+    <ContactForm />
+  </section>
 </Layout>
 
 <style>
-	#home-contact {
-		text-align: center;
-		min-height: 100svh;
-		position: static;
+  #home-contact {
+    text-align: center;
+    min-height: 100svh;
+    position: static;
     width: 100%;
 
+    margin-bottom: 0;
+  }
 
-		margin-bottom: 0;
-	}
+  #home-contact p {
+    color: var(--secondary);
+    font-weight: 500;
+  }
 
-	#home-contact p {
-		color: var(--secondary);
-		font-weight: 500;
-	}
+  #subtitle span {
+    font-size: 1.5rem;
+  }
 
-	#subtitle span {
-		font-size: 1.5rem;
-	}
-
-
-	@media screen and (max-width: 991px){
+  @media screen and (max-width: 991px) {
     #subtitle span {
-			font-size: 1.2rem;
-		}
+      font-size: 1.2rem;
+    }
   }
 
+  #quote-text {
+    max-width: 600px;
+  }
 
+  h1 {
+    font-size: 5rem;
+    line-height: 4.5rem;
+  }
 
-	#quote-text {
-		max-width: 600px;
-	}
-
-	h1 {
-		font-size: 5rem;
-		line-height: 4.5rem;
-	}
-
-	@media screen and (max-width: 991px){
+  @media screen and (max-width: 991px) {
     h1 {
-			font-size: 4rem;
-			line-height: 4rem;
-		}
+      font-size: 4rem;
+      line-height: 4rem;
+    }
   }
 
-
-	@media screen and (max-width: 767px){
+  @media screen and (max-width: 767px) {
     h1 {
-			font-size: 3rem;
-			line-height: 3rem;
-		}
+      font-size: 3rem;
+      line-height: 3rem;
+    }
   }
-
 </style>

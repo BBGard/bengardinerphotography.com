@@ -1,0 +1,141 @@
+---
+/**
+ * @component SingleGallerySection
+ * @description 66% image width with 33% text width.
+ * @prop {string} id - A unique identifier for this component
+ */
+
+interface Props {
+  id: string;
+  imageSrc: string;
+  imageAlt: string;
+  direction: string;
+}
+
+const { id, imageSrc, imageAlt, direction } = Astro.props;
+---
+
+<section
+  id={id}
+  class="single-gallery-section"
+>
+  <div class={ direction === "reverse" ? "single-gallery-container-reverse" : "single-gallery-container"}>
+    <div class="photo-block-66">
+      <img src={Astro.props.imageSrc} alt={Astro.props.imageAlt} />
+    </div>
+    <div class="text-block-33">
+      <!-- Insert custom content here -->
+      <slot />
+      <!-- End custom slot -->
+    </div>
+  </div>
+</section>
+
+<style>
+  .single-gallery-section {
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100svh;
+    display: flex;
+  }
+
+  .single-gallery-container {
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: var(--off-white);
+    flex-flow: row;
+    flex: 0 auto;
+    order: 0;
+    justify-content: flex-start;
+    align-self: auto;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    padding-top: 0%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+  }
+
+  .single-gallery-container-reverse {
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: var(--off-white);
+    flex-flow: row-reverse;
+    flex: 0 auto;
+    order: 0;
+    justify-content: flex-start;
+    align-self: auto;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    padding-top: 0%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+
+  }
+
+  .photo-block-66 {
+    width: 100%;
+    max-width: 66%;
+    padding: 2rem;
+  }
+
+  .photo-block-66 img {
+    border: 3px #000;
+    border-radius: 0;
+    max-width: 100%;
+    margin-right: 0;
+    padding: 0.5rem;
+    box-shadow: 3px 3px 10px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .text-block-33 {
+    flex: 0 auto;
+    order: 0;
+    align-self: auto;
+    width: 100%;
+    max-width: 33%;
+    padding-top: 2rem;
+  }
+
+  @media screen and (max-width: 991px) {
+    .single-gallery-section {
+      height: 100%;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .single-gallery-container {
+      flex-flow: column;
+      height: 100%;
+    }
+
+    .photo-block-66 {
+      max-width: 100%;
+    }
+
+    .text-block-33 {
+      max-width: 100%;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 479px) {
+    .single-gallery-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .text-block-33, .photo-block-66 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+</style>

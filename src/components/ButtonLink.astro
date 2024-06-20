@@ -76,11 +76,26 @@ const {
   .btn-small {
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
+    background-color: var(--color-gold);
   }
 
   .btn-normal {
-    padding: 0.6rem 1rem;
+    /* padding: 0.6rem 1rem;
+    font-size: 1rem; */
+    border: 2px solid var(--color-green);
+    color: var(--color-green);
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 1rem;
+    font-family: Montserrat, sans-serif;
     font-size: 1rem;
+    font-weight: 500;
+    transition: all .2s ease-in-out;
+  }
+
+  .btn-normal:hover {
+    background-color: var(--color-green);
+    color: var(--secondary);
+    transform: scale(1.1);
   }
 
   .btn-full {
@@ -104,6 +119,7 @@ const {
       display: flex;
       align-items: center;
       justify-content: center;
+
     }
 
     .btn-icon:hover .invert-hover > img {

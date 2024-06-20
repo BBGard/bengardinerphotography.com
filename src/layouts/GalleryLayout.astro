@@ -8,7 +8,16 @@ import GallerySection from "../components/GallerySection.astro";
 const { frontmatter } = Astro.props;
 
 // Get all images in the gallery folder
-const allImages = await Astro.glob("../assets/images/Gallery/*.webp");
+const landscapes = await Astro.glob("../assets/images/Gallery/landscape/*");
+const nature = await Astro.glob("../assets/images/Gallery/nature/*");
+const wildlife = await Astro.glob("../assets/images/Gallery/wildlife/*");
+const ruralUrban = await Astro.glob("../assets/images/Gallery/rural-urban/*");
+
+const allImages = [...landscapes, ...nature, ...wildlife, ...ruralUrban];
+
+// Shuffel order of images
+allImages.sort(() => Math.random() - 0.5);
+// const allImages = await Astro.glob("../assets/images/Gallery/*.webp");
 
 // Filter the images to only include the ones that match the gallery name
 const images = allImages.filter((image) => {
