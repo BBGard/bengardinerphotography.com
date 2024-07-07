@@ -25,7 +25,7 @@ const {
 <section id={id} class="text-image-section">
   <div class="flex-columns">
     <div class="text-box">
-      <h2>{title}</h2>
+      <h2 class="fade-in">{title}</h2>
       <!-- Text goes here -->
       <slot class="customText" />
       <!-- End text -->
@@ -40,7 +40,7 @@ const {
         )
       }
     </div>
-    <div class="image-box">
+    <div class="image-box fade-in">
       <img decoding="async" loading="lazy" src={imageSrc} alt={imageAlt} />
     </div>
   </div>

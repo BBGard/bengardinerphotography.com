@@ -20,7 +20,7 @@ const { id, imageSrc, imageAlt, direction } = Astro.props;
   class="single-gallery-section"
 >
   <div class={ direction === "reverse" ? "single-gallery-container-reverse" : "single-gallery-container"}>
-    <div class="photo-block-66">
+    <div class="photo-block-66 fade-in">
       <img src={Astro.props.imageSrc} alt={Astro.props.imageAlt} />
     </div>
     <div class="text-block-33">
@@ -84,16 +84,18 @@ const { id, imageSrc, imageAlt, direction } = Astro.props;
     width: 100%;
     max-width: 66%;
     padding: 2rem;
+
   }
 
   .photo-block-66 img {
-    border: 3px #000;
-    border-radius: 0;
+    background-color: var(--color-off-white);
+    border-radius: 2px;
     max-width: 100%;
     margin-right: 0;
     padding: 0.5rem;
     box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
   }
+
 
   .text-block-33 {
     flex: 0 auto;

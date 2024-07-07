@@ -442,6 +442,8 @@ blockquote p {
   /* border-radius: 0.5rem; */
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
     box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+
 }
 
 .gallery-item img {
@@ -449,10 +451,10 @@ blockquote p {
   height: 100%;
   padding: 0.5rem;
   object-fit: cover;
-  transition: transform 0.2s ease-in-out;
+  background-color: var(--color-off-white);
 }
 
-.gallery-item img:hover {
+.gallery-item:hover {
   transform: scale(1.05);
 }
 /* End Sections */
