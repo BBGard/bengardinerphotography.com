@@ -1,0 +1,37 @@
+---
+/**
+ * Success page for form submission
+ */
+import Layout from "../layouts/Layout.astro";
+import ButtonLink from "../components/ButtonLink.astro";
+import "../styles/global.css";
+---
+
+<Layout title="Success" description="Message submitted.">
+  <div class="container">
+    <h1>Success!</h1>
+    <p>Your message has been sent successfully.</p>
+    <ButtonLink btnText="Back to Home" btnLink="/" />
+  </div>
+</Layout>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+</style>
