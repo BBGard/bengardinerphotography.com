@@ -63,9 +63,9 @@ import ButtonLink from "./ButtonLink.astro";
             required
           />
         </div>
-        <div class="fomr-group">
+        <div class="form-group">
           <label for="subject" class="form-label">Subject *</label>
-          <input type="text" name="subject" required/>
+          <input class="form-input" type="text" name="subject" placeholder="What is this about?" required/>
         </div>
         <div class="form-group">
           <label for="message" class="form-label">Message *</label>
@@ -174,8 +174,8 @@ import ButtonLink from "./ButtonLink.astro";
     text-align: left;
   }
 
-  .form-input::placeholder,
-  .form-textarea:focus-visible {
+  .form-input::placeholder, .form-textarea::placeholder
+   {
     color: #6b7280;
   }
 
